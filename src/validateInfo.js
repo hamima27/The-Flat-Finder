@@ -2,17 +2,15 @@ export default function validateInfo(values) {
   let errors = {};
 
   if (!values.email1) {
-    errors.email1 = "Email Required";
-  } else if (!/^[A-Za-z]+/.test(values.name.trim())) {
-    errors.name = "Enter a Valid Email";
+    errors.email1 = "Email required";
+  } else if (!/\S+@\S+\.\S+/.test(values.email1)) {
+    errors.email1 = "Email address is invalid";
   }
-
   if (!values.email2) {
-    errors.email2 = "Please Confirm Email";
-  } else if (!/^[A-Za-z]+/.test(values.name.trim())) {
-    errors.name = "Please Confirm Email";
+    errors.email2 = "Email required";
+  } else if (!/\S+@\S+\.\S+/.test(values.email2)) {
+    errors.email2 = "Email address is invalid";
   }
-
   if (!values.password1) {
     errors.password1 = "Password is required";
   } else if (values.password1.length < 6) {
@@ -20,15 +18,14 @@ export default function validateInfo(values) {
   }
 
   if (!values.password2) {
-    errors.password2 = "Password confirmation is required";
-  } else if (values.password2 !== values.password) {
+    errors.password2 = "Password is required";
+  } else if (values.password2 !== values.password1) {
     errors.password2 = "Passwords do not match";
   }
-
   if (!values.EmployeeID) {
-    errors.EmployeeID = "Employee ID is required";
-  } else if (values.EmployeeID.length !== 6) {
-    errors.password2 = "Employee ID needs to be 6 digits long";
+    errors.EmployeeID = "Employee ID required";
+  } else if (values.EmployeeID.length < 6) {
+    errors.EmployeeID = "Employe ID invalid";
   }
   return errors;
 }
