@@ -14,7 +14,11 @@ const Form = () => {
       <div className="form-container">
         <span className="close-btn">×</span>
         <div className="form-content-left">
-          <img className="form-img" src="img/img-2.svg" alt="putpichere" />
+          <img
+            src="https://i.imgur.com/9Ka9mEE.png"
+            className="form-img"
+            alt="putpichere"
+          />
         </div>
         {!isSubmitted ? (
           <FormSignup submitForm={submitForm} />
