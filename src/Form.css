@@ -1,5 +1,5 @@
 .form-content-right p {
-  color: blue;
+  color: red;
 }
 
 .form-container {
@@ -56,7 +56,7 @@
 }
 
 .form-content-right-group {
-  background: #649ebb;
+  background: #055780;
   margin-left: 10px;
   margin-right: 10px;
   border-radius: 15px;
@@ -66,7 +66,7 @@
   margin-top: 10px;
   width: 80%;
   margin-left: 60px;
-  background: #649ebb;
+  background: #055780;
   border-radius: 100px;
 }
 
@@ -130,11 +130,12 @@
   margin-top: 20px;
   margin-left: 10px;
   border-radius: 20px;
-  background: linear-gradient(
+  background: #055780;
+  /*background: linear-gradient(
     90deg,
     rgb(152, 255, 161) 0%,
     rgb(102, 184, 231) 100%
-  );
+  );*/
   outline: none;
   border: none;
   color: #fff;
@@ -180,7 +181,7 @@
 }
 
 .form1 h1 {
-  color: #649ebb;
+  color: #055780;
   margin-top: 60px;
   font-family: "Lato", sans-serif;
   font-size: 45px;
