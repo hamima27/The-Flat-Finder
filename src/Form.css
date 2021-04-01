@@ -5,7 +5,7 @@
 .form-container {
   margin: 100px auto;
   width: 1000px;
-  background: white;
+  background: #f2ead6;
   box-shadow: 0 5px 8px 0 rgb(63, 61, 61), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
   position: relative;
   border-radius: 10px;
@@ -25,7 +25,7 @@
 }
 
 .form-content-left {
-  background: #ff4a39;
+  background: #351f31;
   border-radius: 10px 0 0 10px;
   position: relative;
 }
@@ -56,7 +56,7 @@
 }
 
 .form-content-right-group {
-  background: #055780;
+  background: #351f31;
   margin-left: 10px;
   margin-right: 10px;
   border-radius: 15px;
@@ -66,7 +66,7 @@
   margin-top: 10px;
   width: 80%;
   margin-left: 60px;
-  background: #055780;
+  background: #351f31;
   border-radius: 100px;
 }
 
@@ -126,16 +126,11 @@
 
 .form-input-btn {
   width: 40%;
-  height: 50px;
+  height: 60px;
   margin-top: 20px;
   margin-left: 10px;
   border-radius: 20px;
-  background: #055780;
-  /*background: linear-gradient(
-    90deg,
-    rgb(152, 255, 161) 0%,
-    rgb(102, 184, 231) 100%
-  );*/
+  background: #351f31;
   outline: none;
   border: none;
   color: #fff;
@@ -153,7 +148,7 @@
 }
 
 .form-input-login {
-  font-size: 0.8rem;
+  font-size: 1rem;
   margin-top: 10px;
   margin-left: 16px;
   width: 80%;
@@ -171,7 +166,7 @@
 }
 
 .email-label {
-  color: #fff;
+  color: #f2ead6;
   font-size: 20%;
 }
 
@@ -181,10 +176,10 @@
 }
 
 .form1 h1 {
-  color: #055780;
+  color: #351f31;
   margin-top: 60px;
   font-family: "Lato", sans-serif;
   font-size: 45px;
   font-weight: 500;
-  line-height: 50px;
+  line-height: 100px;
 }
