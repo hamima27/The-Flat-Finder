@@ -105,7 +105,7 @@ const Formsignup = ({ submitForm }) => {
         Sign Up
       </button>
       <span className="form-input-login">
-        <form method="post" action="Login.html">
+        <form method="get" action="Login.html">
           <button type="submit">Login Here</button>
         </form>
       </span>
