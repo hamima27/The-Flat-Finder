@@ -1,16 +1,33 @@
 import React from "react";
 
-function hello1() {
+const loginForm = () => {
   return (
-    <div>
-      <form>
-        <label>Email</label>
-        <input></input>
-        <label>Password</label>
-        <input></input>
-      </form>
+    <div className="form-content-right2">
+      <h1> The Flat Finder </h1>
+      <div className="form-inputs2">
+        <label htmlFor="email">Email</label>
+        <input
+          type="email"
+          name="email"
+          className="form-input2"
+          placeholder="Enter your email"
+        />
+      </div>
+      <div className="form-inputs2">
+        <label htmlFor="password">Password</label>
+        <input
+          type="password"
+          name="password"
+          className="form-input2"
+          placeholder="Enter password"
+        />
+      </div>
+      <button classname="form-input-btn2" type="submit">
+        {" "}
+        Log in
+      </button>
     </div>
   );
-}
+};
 
-export default hello1;
+export default loginForm;
