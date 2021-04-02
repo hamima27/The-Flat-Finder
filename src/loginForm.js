@@ -4,7 +4,7 @@ function hello1() {
   return (
     <div>
       <form>
-        <label>Email</label>
+        <label>Email1</label>
         <input></input>
         <label>Password</label>
         <input></input>
