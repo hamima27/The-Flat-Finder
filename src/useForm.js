@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 
-const useForm = (callback, validate) => {
+const useForm = (callback, validate, validate2) => {
   const [values, setValues] = useState({
-    email: "",
+    email1: "",
+    email2: "",
     password1: "",
     password2: "",
     EmployeeID: ""

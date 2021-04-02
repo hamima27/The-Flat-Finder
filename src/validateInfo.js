@@ -27,5 +27,15 @@ export default function validateInfo(values) {
   } else if (values.EmployeeID.length < 6) {
     errors.EmployeeID = "Employe ID invalid";
   }
+  if (!values.email3) {
+    errors.email3 = "Email required";
+  } else if (!/\S+@\S+\.\S+/.test(values.email3)) {
+    errors.email3 = "Email address is invalid";
+  }
+  if (!values.password3) {
+    errors.password3 = "Password is required";
+  } else if (values.password3.length < 6) {
+    errors.password3 = "Password needs to be 6 characters or more";
+  }
   return errors;
 }
