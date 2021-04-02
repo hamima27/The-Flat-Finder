@@ -1,13 +1,25 @@
-import React from "react";
+import { React, useState } from "react";
 import useForm from "./useForm";
 import validate from "./validateInfo";
 import "./Form.css";
+import Redirect from "react-router";
+import { useHistory } from "react-router-dom";
 
 const Formsignup = ({ submitForm }) => {
   const { handleChange, values, handleSubmit, errors } = useForm(
     submitForm,
     validate
   );
+
+  const history = useHistory();
+
+  const handleSignUpClick = () => {
+    //console.log("hello")
+    //setFlag(true);
+    //console.log("test1");
+    history.push("/Login");
+    //return (<Redirect push to="/Login" />)
+  };
 
   return (
     <form className="form1" onSubmit={handleSubmit}>
@@ -105,9 +117,13 @@ const Formsignup = ({ submitForm }) => {
         Sign Up
       </button>
       <span className="form-input-login">
-        <form method="get" action="Login.html">
-          <button type="submit">Login Here</button>
-        </form>
+        <button
+          className="form-input-btn2"
+          type="button"
+          onClick={() => handleSignUpClick()}
+        >
+          Already Registered? Login Here
+        </button>
       </span>
     </form>
   );
