@@ -1,11 +1,12 @@
 {
-  "name": "the-flat-finder",
+  "name": "new-draft-2",
   "version": "1.0.0",
   "description": "",
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
     "@babel/runtime": "7.13.8",
+    "firebase": "8.3.2",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-router": "5.2.0",
