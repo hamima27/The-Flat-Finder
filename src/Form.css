@@ -125,6 +125,8 @@
 .form-input-btn {
   width: 40%;
   height: 60px;
+  position: relative;
+  left: -90px;
   margin-top: 20px;
   margin-left: 10px;
   border-radius: 20px;
@@ -150,11 +152,10 @@
   margin-top: 10px;
   margin-left: 16px;
   width: 80%;
+  position: relative;
+  top: -50px;
+  left: 90px;
   text-align: center;
-}
-
-.form-input-login a {
-  color: blue;
 }
 
 .form-input-login {
