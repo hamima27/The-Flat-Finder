@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React } from "react";
 import style from "./loginForm.css";
 //import firebase from "./firebase";
 
@@ -6,40 +6,45 @@ import style from "./loginForm.css";
 //import validate from "./validateInfo";
 
 const loginForm = () => {
-  const [values, setValues] = useState({
-    email: "2",
-    password: "`1"
-  });
-
   return (
-    <div className="form-content-right2">
-      <form className="form2" onSubmit={() => handleSubmit()}>
-        <h1> The Flat Finder </h1>
-        <div className="form-inputs2">
+    <form className="form2">
+      <h1> The Flat Finder </h1>
+      <div className="form-content-right-group">
+        <div className="form-content-right2">
           <label htmlFor="email">Email</label>
           <input
             id="email"
             type="email"
             name="email"
-            className="form-input2"
+            className="emailInput2"
             placeholder="Enter your email"
-            value={values.email}
           />
         </div>
-        <div className="form-inputs2">
+        <div className="form-content-right2">
           <label htmlFor="password">password</label>
           <input
             type="password"
             name="password"
-            className="form-input2"
+            className="pass1-label"
             placeholder="Enter password"
           />
         </div>
+        <span className="form-input-login"></span>
         <button className="form-input-btn2" type="submit">
           Log in
         </button>
-      </form>
-    </div>
+        <div className="form-container2">
+          <span className="close-btn2">×</span>
+          <div className="form-content-left2">
+            <img
+              src="https://cdn.dribbble.com/users/989466/screenshots/12002010/media/41c270f90ea9e4d1507c3c0fc4922dc3.png?compress=1&resize=400x300"
+              className="form-img2"
+              alt="putpichere"
+            />
+          </div>
+        </div>
+      </div>
+    </form>
   );
 };
 
