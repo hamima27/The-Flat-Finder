@@ -10,6 +10,12 @@
   grid-template-columns: 1fr 1fr;
 }
 
+.form-content-right-group2 {
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 15px;
+}
+
 .close-btn2 {
   position: absolute;
   top: 2%;
@@ -21,12 +27,46 @@
 }
 
 .form-content-right2 {
+  margin-top: 10px;
+  width: 80%;
+  margin-left: 60px;
+  background: #351f31;
+  border-radius: 100px;
+}
+
+.form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form h1 {
+  font-size: 1rem;
+  text-align: start;
+  width: 80%;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.form-inputs2 {
+  margin-bottom: 0.5rem;
+  width: 80%;
+}
+
+.form-content-left2 {
   background: #351f31;
   border-radius: 10px 0 0 10px;
   position: relative;
 }
 
-.form-img {
+.form-img2 {
   width: 80%;
   height: 70%;
   position: absolute;
