@@ -52,7 +52,6 @@ const loginForm = () => {
             Login Here
           </button>
         </span>
-        <span className="close-btn2">×</span>
       </div>
     </form>
   );
