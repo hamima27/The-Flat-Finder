@@ -9,7 +9,7 @@ const loginForm = () => {
   return (
     <form className="form2">
       <h1> The Flat Finder </h1>
-      <div className="form-content-right-group">
+      <div className="form-content-right-group2">
         <div className="form-content-right2">
           <label htmlFor="email">Email</label>
           <input
@@ -29,19 +29,24 @@ const loginForm = () => {
             placeholder="Enter password"
           />
         </div>
-        <span className="form-input-login"></span>
-        <button className="form-input-btn2" type="submit">
-          Log in
+      </div>
+      <span className="form-input-login2">
+        <button
+          className="form-input-btn2"
+          type="button"
+          //onClick={() => handleSignUpClick()}
+        >
+          Login Here
         </button>
-        <div className="form-container2">
-          <span className="close-btn2">×</span>
-          <div className="form-content-left2">
-            <img
-              src="https://cdn.dribbble.com/users/989466/screenshots/12002010/media/41c270f90ea9e4d1507c3c0fc4922dc3.png?compress=1&resize=400x300"
-              className="form-img2"
-              alt="putpichere"
-            />
-          </div>
+      </span>
+      <div className="form-container2">
+        <span className="close-btn2">×</span>
+        <div className="form-content-left2">
+          <img
+            src="https://cdn.dribbble.com/users/989466/screenshots/12002010/media/41c270f90ea9e4d1507c3c0fc4922dc3.png?compress=1&resize=400x300"
+            className="form-img2"
+            alt="putpichere"
+          />
         </div>
       </div>
     </form>
