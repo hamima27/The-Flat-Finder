@@ -1,6 +1,6 @@
 import { React } from "react";
 import style from "./loginForm.css";
-//import firebase from "./firebase";
+import firebase from "./firebase";
 
 //import useForm from "./useForm";
 //import validate from "./validateInfo";

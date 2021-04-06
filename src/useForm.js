@@ -18,7 +18,6 @@ const useForm = (callback, validate, validate2) => {
       ...values,
       [name]: value
     });
-    console.log(values, "is changing");
   };
 
   const handleSubmit = (e) => {
@@ -26,33 +25,26 @@ const useForm = (callback, validate, validate2) => {
 
     setErrors(validate(values));
     setIsSubmitting(true);
-    console.log(values, "is submitted");
 
-    //not sure where to put the firebase call as idk where the final step is
-    //i.e. the part where the data is fully validated so i'm just putting it
-    //for now
-
-    const itemsRef = firebase.database().ref("users");
-    const user = {
-      username: values.email2,
-      password: values.password2,
-      employeeID: values.EmployeeID
-    };
-    itemsRef.push(user);
-    setValues({
+    /*setValues({
       email1: "",
       email2: "",
       password1: "",
       password2: "",
       EmployeeID: ""
-    });
-  };
+    });*/
 
-  useEffect(() => {
-    if (Object.keys(errors).length === 0 && isSubmitting) {
-      callback();
+    if (Object.keys(errors).length === 0) {
+      const itemsRef = firebase.database().ref("users");
+      const user = {
+        username: values.email2,
+        password: values.password2,
+        employeeID: values.EmployeeID
+      };
+      itemsRef.push(user);
+      console.log("pushed");
     }
-  }, [errors]);
+  };
 
   return { handleChange, handleSubmit, values, errors };
 };

@@ -4,6 +4,9 @@ import Form from "./Form";
 import Login from "./loginForm";
 //import Hello1 from "./hello";
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
+//import { FirebaseDatabaseProvider } from "@react-firebase/database";
+//import firebase1 from "./firebase";
+//import firebase from "firebase";
 
 export default function App() {
   return (
