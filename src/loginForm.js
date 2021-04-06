@@ -8,10 +8,12 @@ import style from "./loginForm.css";
 const loginForm = () => {
   return (
     <form className="form2">
-      <h1> The Flat Finder </h1>
+      <h1> THE FLAT FINDER </h1>
       <div className="form-content-right-group2">
         <div className="form-content-right2">
-          <label htmlFor="email">Email</label>
+          <label htmlFor="email" className="emailLabel" className="word-list">
+            Email:
+          </label>
           <input
             id="email"
             type="email"
@@ -21,12 +23,15 @@ const loginForm = () => {
           />
         </div>
         <div className="form-content-right2">
-          <label htmlFor="password">password</label>
+          <label htmlFor="email" className="emailLabel" className="word-list">
+            Password:
+          </label>
           <input
-            type="password"
+            id="Password"
+            type="Password"
             name="password"
-            className="pass1-label"
-            placeholder="Enter password"
+            className="PassInput2"
+            placeholder="Enter your password"
           />
         </div>
       </div>
@@ -39,6 +44,7 @@ const loginForm = () => {
           Login Here
         </button>
       </span>
+
       <div className="form-container2">
         <span className="close-btn2">×</span>
         <div className="form-content-left2">
