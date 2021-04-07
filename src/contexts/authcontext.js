@@ -20,6 +20,22 @@ export function AuthProvider({ children }) {
     return auth.signOut();
   }
 
+  function getCurrentEmail() {
+    if (currentUser !== "null") {
+      return currentUser.email;
+    } else {
+      return "No current user";
+    }
+  }
+
+  function getCurrentUID() {
+    if (currentUser !== "null") {
+      return currentUser.uid;
+    } else {
+      return "No current user";
+    }
+  }
+
   useEffect(() => {
     const exit = auth.onAuthStateChanged((user) => {
       setCurrentUser(user);
@@ -28,13 +44,15 @@ export function AuthProvider({ children }) {
     return exit;
   }, []);
 
-  const [currentUser, setCurrentUser] = useState();
+  const [currentUser, setCurrentUser] = useState("null");
 
   const value = {
     currentUser,
     signup,
     login,
-    logout
+    logout,
+    getCurrentUID,
+    getCurrentEmail
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

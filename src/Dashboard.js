@@ -15,10 +15,14 @@ function Dashboard() {
     }
   }
 
+  const { getCurrentUID } = useAuth();
+  const { getCurrentEmail } = useAuth();
+
   return (
     <div>
       <p> Dashboard </p>
-      <p> Your email address: </p> {currentUser.email}
+      <p> Your email address: </p> {getCurrentEmail()}
+      <p> Current UID: </p> {getCurrentUID()}
       <button onClick={handleLogOut}> Log Out </button>
     </div>
   );
