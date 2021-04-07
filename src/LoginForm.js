@@ -1,13 +1,49 @@
-import { React } from "react";
+import React, { useState } from "react";
 import style from "./loginForm.css";
 import firebase from "./firebase";
+import { Link, useHistory } from "react-router-dom";
+import { useAuth } from "./contexts/authcontext";
 
-//import useForm from "./useForm";
-//import validate from "./validateInfo";
+function LoginForm() {
+  const { login } = useAuth();
 
-const loginForm = () => {
+  const history = useHistory();
+
+  const handleSignUpClick = () => {
+    history.push("/");
+  };
+
+  async function function1() {
+    try {
+      await login(loginVals.email, loginVals.password);
+      console.log("user logged in");
+      history.push("/Dashboard");
+    } catch {
+      console.log("ERROR: Problem with Firebase User Login");
+    }
+  }
+
+  const LoginFunct = (e) => {
+    e.preventDefault();
+    function1();
+  };
+
+  const [loginVals, setLoginVals] = useState({
+    email: "",
+    password: ""
+  });
+
+  const handleChange = (e) => {
+    e.preventDefault();
+    const { name, value } = e.target;
+    setLoginVals({
+      ...loginVals,
+      [name]: value
+    });
+  };
+
   return (
-    <form className="form2">
+    <form className="form2" onSubmit={LoginFunct}>
       <div className="form-container2">
         <div className="form-content-left2">
           <img
@@ -28,6 +64,8 @@ const loginForm = () => {
               name="email"
               className="emailInput2"
               placeholder="Enter your email"
+              value={loginVals.email}
+              onChange={handleChange}
             />
           </div>
           <div className="form-content-right2">
@@ -40,21 +78,30 @@ const loginForm = () => {
               name="password"
               className="PassInput2"
               placeholder="Enter your password"
+              value={loginVals.password}
+              onChange={handleChange}
             />
           </div>
         </div>
         <span className="form-input-login2">
           <button
             className="form-input-btn2"
-            type="button"
+            type="submit"
             //onClick={() => handleSignUpClick()}
           >
             Login Here
+          </button>
+          <button
+            className="form-input-btn2"
+            type="button"
+            onClick={() => handleSignUpClick()}
+          >
+            Need an account? Register here
           </button>
         </span>
       </div>
     </form>
   );
-};
+}
 
-export default loginForm;
+export default LoginForm;
