@@ -13,15 +13,26 @@ export function AuthProvider({ children }) {
   }
 
   function login(email, password) {
-    return auth.signInWithEmailAndPassword(email, password);
+    try {
+      setLoggedIn(true);
+      return auth.signInWithEmailAndPassword(email, password);
+    } catch {
+      setLoggedIn(false);
+      console.log("Login Auth Error");
+    }
   }
 
   function logout() {
-    return auth.signOut();
+    try {
+      setLoggedIn(false);
+      return auth.signOut();
+    } catch {
+      console.log("Logout Auth Error");
+    }
   }
 
   function getCurrentEmail() {
-    if (currentUser !== "null") {
+    if (loggedIn) {
       return currentUser.email;
     } else {
       return "No current user";
@@ -29,22 +40,32 @@ export function AuthProvider({ children }) {
   }
 
   function getCurrentUID() {
-    if (currentUser !== "null") {
+    if (loggedIn) {
       return currentUser.uid;
     } else {
       return "No current user";
     }
   }
 
+  function getLoggedIn() {
+    if (loggedIn) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   useEffect(() => {
     const exit = auth.onAuthStateChanged((user) => {
       setCurrentUser(user);
+      //setLoggedIn(true);
     });
 
     return exit;
   }, []);
 
   const [currentUser, setCurrentUser] = useState("null");
+  const [loggedIn, setLoggedIn] = useState(false);
 
   const value = {
     currentUser,
@@ -52,7 +73,8 @@ export function AuthProvider({ children }) {
     login,
     logout,
     getCurrentUID,
-    getCurrentEmail
+    getCurrentEmail,
+    getLoggedIn
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

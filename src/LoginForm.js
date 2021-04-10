@@ -6,11 +6,11 @@ import { useAuth } from "./contexts/authcontext";
 
 function LoginForm() {
   const { login } = useAuth();
-
+  //const { getLoggedIn } = useAuth();
   const history = useHistory();
 
   const handleSignUpClick = () => {
-    history.push("/");
+    history.push("/Register");
   };
 
   async function function1() {

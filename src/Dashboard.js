@@ -15,6 +15,19 @@ function Dashboard() {
     }
   }
 
+  function search() {}
+
+  function makeListing() {
+    /*const itemsRef = firebase.database().ref("users");
+    const user = {
+      username: values.email2,
+      password: values.password2,
+      employeeID: values.EmployeeID
+    };
+    itemsRef.push(user);
+    */
+  }
+
   const { getCurrentUID } = useAuth();
   const { getCurrentEmail } = useAuth();
 
@@ -24,6 +37,7 @@ function Dashboard() {
       <p> Your email address: </p> {getCurrentEmail()}
       <p> Current UID: </p> {getCurrentUID()}
       <button onClick={handleLogOut}> Log Out </button>
+      <button onClick={search}> Search </button>
     </div>
   );
 }
