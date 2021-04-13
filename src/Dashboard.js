@@ -3,6 +3,7 @@ import ReactToolTip from "react-tooltip";
 import { useAuth } from "./contexts/authcontext";
 import { useHistory } from "react-router-dom";
 import { database } from "./firebase";
+import GoogleMaps from "./components/GoogleMaps";
 
 function Dashboard() {
   const { currentUser, logout } = useAuth();
@@ -17,21 +18,21 @@ function Dashboard() {
     }
   }
 
-  const [searchString, setSearchString] = useState("");
+  /*const [searchString, setSearchString] = useState("");
 
   const searchSubmit = (e) => {
     e.preventDefault();
 
     console.log("search");
-  };
+  };*/
 
-  const handleSearchChange = (e) => {
+  /*const handleSearchChange = (e) => {
     e.preventDefault();
     const { name, value } = e.target;
     setSearchString({
       [name]: value
     });
-  };
+  };*/
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -84,14 +85,7 @@ function Dashboard() {
         <p> Your email address: </p> {getCurrentEmail()}
         <p> Current UID: </p> {getCurrentUID()}
         <button onClick={handleLogOut}> Log Out </button>
-        <form onSubmit={searchSubmit}>
-          <input
-            name="searchString"
-            placeholder="Search here"
-            onChange={handleSearchChange}
-          />
-          <button type="submit">Search</button>
-        </form>
+        <GoogleMaps />
       </div>
     );
   } else {
