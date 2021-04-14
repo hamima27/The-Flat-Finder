@@ -4,10 +4,12 @@ import PlacesAutocomplete, {
   geocodeByAddress,
   getLatLng
 } from "react-places-autocomplete";
+import { database } from "../firebase";
 
 export class MapContainer extends Component {
   constructor(props) {
     super(props);
+    this.firebaseGetListings();
     this.state = {
       showingInfoWindow: false,
       activeMarker: {},
@@ -16,15 +18,58 @@ export class MapContainer extends Component {
       mapCenter: {
         lat: 51.5278773,
         lng: -0.0543867
-      }
+      },
+      listings: {},
+      coords: {}
+      //addresses: []
     };
   }
 
-  handleChange = (address) => {
+  firebaseGetListings = (props) => {
+    const listingsList = [];
+    const coordsList = [];
+    //const coordsList = []
+    const dbRef = database.ref("Listings");
+    dbRef.on("value", (snapshot) => {
+      const firebaseListingsObject = snapshot.val();
+      for (let id in firebaseListingsObject) {
+        listingsList.push(firebaseListingsObject[id]);
+      }
+      //var i;
+      for (let i in listingsList) {
+        geocodeByAddress(listingsList[i].location)
+          .then((results) => getLatLng(results[0]))
+          .then((latLng) => {
+            //console.log(latLng)
+            coordsList.push(latLng);
+            //console.log(coordsList)
+          })
+          .catch((error) => console.log("geocode error"));
+      }
+      //for (let i in addressList)
+      //this.setState = {
+      //listings: listingsList,
+      //coords: coordsList
+      //};
+
+      // was getting an error due to the few bugs in the maps module so had to mutate
+      //state directly instead of using setState
+
+      //console.log(this.state.listings)
+      //console.log(listingsList[0].location);
+      //console.log(snapshot.val());
+      //console.log(coordsList)
+    });
+  };
+
+  handleChange = (address, props) => {
     this.setState({ address });
   };
 
-  handleSelect = (address) => {
+  handleSelect = (address, props) => {
+    console.log(this.state.listings);
+    console.log(this.state.coords);
+    console.log("///////");
     geocodeByAddress(address)
       .then((results) => getLatLng(results[0]))
       .then((latLng) => {
@@ -137,5 +182,5 @@ export class MapContainer extends Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: INSERT HERE
+  apiKey: "AIzaSyC44LmEfw4hs78DkfdGjAnAXbL6PO8-AUQ"
 })(MapContainer);

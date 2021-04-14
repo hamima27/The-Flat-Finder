@@ -3,7 +3,7 @@ import ReactToolTip from "react-tooltip";
 import { useAuth } from "./contexts/authcontext";
 import { useHistory } from "react-router-dom";
 import { database } from "./firebase";
-import GoogleMaps from "./components/GoogleMaps";
+import GoogleMaps from "./components/NewGoogleMapsThree";
 
 function Dashboard() {
   const { currentUser, logout } = useAuth();
@@ -44,7 +44,8 @@ function Dashboard() {
         price: "",
         location: "",
         landlordID: "",
-        status: ""
+        status: "",
+        isBooked: ""
       });
     } catch {
       console.log("property listing creation error");
@@ -52,6 +53,7 @@ function Dashboard() {
   };
 
   function makeListing() {
+    setListing({ isBooked: "false" });
     const listingRef = database.ref("Listings");
     listingRef.push(listing);
   }
@@ -62,7 +64,8 @@ function Dashboard() {
     price: "",
     location: "",
     landlordID: "",
-    status: ""
+    status: "",
+    isBooked: ""
   });
 
   const handleChange = (e) => {

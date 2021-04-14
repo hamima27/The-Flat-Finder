@@ -6,8 +6,6 @@ import Dashboard from "./Dashboard";
 import Homepage from "./Homepage";
 import About from "./About";
 import Contact from "./Contact";
-//import GoogleMaps from "./components/GoogleMaps";
-
 //import Hello1 from "./hello";
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 //import { FirebaseDatabaseProvider } from "@react-firebase/database";
