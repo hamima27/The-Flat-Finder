@@ -6,6 +6,7 @@
   "main": "src/index.js",
   "dependencies": {
     "@babel/runtime": "7.13.10",
+    "@reach/combobox": "0.15.0",
     "@react-google-maps/api": "2.1.1",
     "firebase": "8.4.1",
     "google-distance-matrix": "1.1.1",
@@ -16,7 +17,8 @@
     "react-router": "5.2.0",
     "react-router-dom": "5.2.0",
     "react-scripts": "4.0.3",
-    "react-tooltip": "4.2.17"
+    "react-tooltip": "4.2.17",
+    "use-places-autocomplete": "1.9.1"
   },
   "devDependencies": {
     "typescript": "4.1.3"

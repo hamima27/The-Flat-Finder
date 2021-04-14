@@ -5,13 +5,25 @@ import {
   Marker,
   InfoWindow
 } from "@react-google-maps/api";
+import usePlacesAutocomplete, {
+  getGeocode,
+  getLatLng
+} from "use-places-autocomplete";
+import {
+  Combobox,
+  ComboboxInput,
+  ComboboxPopover,
+  ComboboxList,
+  ComboboxOption
+} from "@reach/combobox";
+import "@reach/combobox/styles.css";
 
 const containerStyle = {
   width: "100vw",
   height: "100vh"
 };
 
-const libraries = ["places"];
+//const libraries = ["places"];
 
 export default function GSearch() {
   const [center, setCenter] = useState({ lat: 51.5074, lng: 0.1278 });
@@ -37,13 +49,15 @@ export default function GSearch() {
   });
 
   const [curSelect, setCurSelect] = useState(null);
+  const libraries = ["places"];
 
   return (
     <div>
       <LoadScript
-        googleMapsApiKey=SETHERE
+        googleMapsApiKey="AIzaSyC44LmEfw4hs78DkfdGjAnAXbL6PO8-AUQ"
         libraries={libraries}
       >
+        <AutoSearch />
         <GoogleMap
           mapContainerStyle={containerStyle}
           center={center}
@@ -63,7 +77,12 @@ export default function GSearch() {
             ))}
 
             {curSelect ? (
-              <InfoWindow position={curSelect}>
+              <InfoWindow
+                position={curSelect}
+                onCloseClick={() => {
+                  setCurSelect(null);
+                }}
+              >
                 <div>
                   <h1>text</h1>
                 </div>
@@ -76,6 +95,42 @@ export default function GSearch() {
   );
 }
 
+function AutoSearch() {
+  const {
+    ready,
+    value,
+    suggestions: { status, data },
+    setValue,
+    clearSuggestions
+  } = usePlacesAutocomplete();
+
+  return (
+    <Combobox
+      onSelect={(address) => {
+        console.log(address);
+      }}
+    >
+      <ComboboxInput
+        value={value}
+        onChange={(e) => {
+          setValue(e.target.value);
+        }}
+        disabled={!ready}
+        placeholder="Search here"
+      />
+
+      <ComboboxPopover>
+        {status === "OK" &&
+          data.map(({ id, description }) => (
+            <ComboboxOption
+              key={description}
+              value={description}
+            ></ComboboxOption>
+          ))}
+      </ComboboxPopover>
+    </Combobox>
+  );
+}
 /*{curSelect ? (
             <InfoWindow
               positon={{ lat: curSelect.lat, lng: curSelect.lng }}
