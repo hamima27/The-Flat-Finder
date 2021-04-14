@@ -53,10 +53,7 @@ export default function GSearch() {
 
   return (
     <div>
-      <LoadScript
-        googleMapsApiKey="AIzaSyC44LmEfw4hs78DkfdGjAnAXbL6PO8-AUQ"
-        libraries={libraries}
-      >
+      <LoadScript googleMapsApiKey="ENTER_HERE" libraries={libraries}>
         <AutoSearch />
         <GoogleMap
           mapContainerStyle={containerStyle}
